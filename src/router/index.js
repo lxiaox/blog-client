@@ -1,44 +1,57 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'
-import Index from '@/pages/Index/template.vue'
-import Login from '@/pages/Login/template.vue'
-import Register from '@/pages/Register/template.vue'
-import Create from '@/pages/Create/template.vue'
-import Edit from '@/pages/Edit/template.vue'
-import My from '@/pages/My/template.vue'
-import User from '@/pages/User/template.vue'
-import Detail from '@/pages/Detail/template.vue'
+
+import store from '../store'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
-      // name: 'Index',
-      component: Index
+      component: ()=>import('@/pages/Index/template.vue')
     }, {
       path: '/my',
-      component: My
+      component: ()=>import('@/pages/my/template.vue'),
+      meta: { requireAuth: true }
     }, {
       path: '/login',
-      component: Login
+      component: ()=>import('@/pages/login/template.vue')
     }, {
       path: '/register',
-      component: Register
+      component: ()=>import('@/pages/register/template.vue')
     }, {
       path: '/create',
-      component: Create
+      component: ()=>import('@/pages/create/template.vue'),
+      meta: { requireAuth: true }
     }, {
-      path: '/edit',
-      component: Edit
+      path: '/edit/:blogId',
+      component: ()=>import('@/pages/edit/template.vue'),
+      meta: { requireAuth: true }
     }, {
-      path: '/user',
-      component: User
+      path: '/user/:userId',
+      component: ()=>import('@/pages/user/template.vue')
     }, {
-      path: '/detail',
-      component: Detail
+      path: '/detail/:blogId',
+      component: ()=>import('@/pages/detail/template.vue')
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+  console.log(to)
+  if (to.matched.some(i => i.meta.requireAuth)) {
+    store.dispatch('checkLogin').then((isLogin) => {
+      if (!isLogin) {
+        next({
+          path: '/login',
+          query: { redirect: to.fullPath }
+        })
+      } else {
+        next()
+      }
+    })
+  } else {
+    next()
+  }
+})
+export default router

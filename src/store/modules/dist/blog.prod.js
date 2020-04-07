@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var state={},getters={},mutations={},actions={},_default={state:state,getters:getters,mutations:mutations,actions:actions};exports.default=_default;

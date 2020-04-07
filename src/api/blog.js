@@ -14,7 +14,7 @@ export default {
   createBlog({ title = '', content = '', description = '', atIndex = false } = { title: '', content: '', description: '', atIndex: false }) {
     return request(URL.CREATE, 'POST', { title, content, description, atIndex })
   },
-  updateBlog({ blogId }, { title, content, description, atIndex}) {
+  updateBlog(blogId, { title, content, description, atIndex}) {
     return request(URL.UPDATA.replace(':blogId', blogId), 'PATCH', { title, content, description, atIndex })
   },
 
@@ -28,7 +28,7 @@ export default {
   getBlogs({ page = 1, userId, atIndex } = { page: 1 }) {
     return request(URL.GET_LIST, 'GET', { page, userId, atIndex })
   },
-  getBlogsByUserId(userId, { page = 1, atIndex = true } = { page: 1, atIndex: true }) {
+  getBlogsByUserId(userId, { page = 1, atIndex } = { page: 1 }) {
     return this.getBlogs({ page, userId, atIndex })
   },
   getIndexBlogs({ page = 1 } = { page: 1 }) {

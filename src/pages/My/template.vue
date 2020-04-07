@@ -1,38 +1,26 @@
 <template>
-  <div id="my">
+  <div id="user">
     <section class="user-info">
-      <img src="@/assets/images/avatar.jpeg" alt="" class="avatar">
-      <h3>远岫</h3>
+      <img :src="user.avatar" :alt="user.username" class="avatar">
+      <h3>{{user.username}}</h3>
     </section>
     <section>
-      <div class="item">
+      <router-link :to="`/detail/${blog.id}`" class="item" v-for="blog in blogs" :key="blog.id">
         <div class="date">
-          <span class="day">20</span>
-          <span class="month">5月</span>
-          <span class="year">2018</span>
+          <span class="day">{{spliteDate(blog.createdAt).date}}</span>
+          <span class="month">{{spliteDate(blog.createdAt).month}}</span>
+          <span class="year">{{spliteDate(blog.createdAt).year}}</span>
         </div>
-        <h3>前端异步解密</h3>
-        <p>本文以一个简单的文件读写为例，讲解了异步的不同写法，包括 普通的 callback、ES2016中的Promise和Generator、 Node 用于解决回调的co 模块、ES2017中的async/await。适合初步接触 Node.js以及少量 ES6语法的同学阅读...</p>
+        <h3>{{blog.title}}</h3>
+        <p>{{blog.description}}</p>
         <div class="actions">
-          <router-link to="/edit">编辑</router-link>
-          <a href="#">删除</a>
+          <router-link :to="`/edit/${blog.id}`">编辑</router-link>
+          <a href="#" @click.prevent="onDelete(blog.id)">删除</a>
         </div>
-      </div>
-
-      <div class="item">
-        <div class="date">
-          <span class="day">20</span>
-          <span class="month">5月</span>
-          <span class="year">2018</span>
-        </div>
-        <h3>前端异步解密</h3>
-        <p>本文以一个简单的文件读写为例，讲解了异步的不同写法，包括 普通的 callback、ES2016中的Promise和Generator、 Node 用于解决回调的co 模块、ES2017中的async/await。适合初步接触 Node.js以及少量 ES6语法的同学阅读...</p>
-        <div class="actions">
-          <router-link to="/edit">编辑</router-link>
-          <a href="#">删除</a>
-        </div>
-      </div>
-
+      </router-link>
+    </section>
+    <section class="pagination" v-show="total>0">
+      <el-pagination layout="total,prev, pager, next, jumper" :total="total" @current-change="onPageChange" :current-page="page"></el-pagination>
     </section>
   </div>
 </template>

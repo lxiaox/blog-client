@@ -3,12 +3,17 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import auth from './api/auth'
+window.auth = auth
 // element-ui
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+import Utils from './helpers/utils'
+Vue.use(Utils)
 Vue.use(ElementUI);
+
+import store from './store'
 
 Vue.config.productionTip = false
 
@@ -16,6 +21,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

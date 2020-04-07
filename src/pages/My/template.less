@@ -1,7 +1,9 @@
 @import "../../assets/style/base.less";
 
 #my,#user {
- 
+  min-height:600px;
+  padding-bottom: 50px;
+  position: relative;
   .user-info {
     display: grid;
     grid: auto auto / 80px 1fr;
@@ -26,6 +28,7 @@
   }
 
   .item {
+    margin-bottom: 20px;
     display: grid;
     grid: auto  auto auto / 80px 1fr;
     margin: 20px 0;
@@ -49,6 +52,7 @@
     h3 {
       grid-column: 2;
       grid-row: 1;
+      margin-top:12px;
     }
 
     p {
@@ -69,5 +73,9 @@
     }
 
   }
-
+  .pagination{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+  }
 }

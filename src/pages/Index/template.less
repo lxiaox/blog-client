@@ -1,11 +1,10 @@
 @import "../../assets/style/base.less";
 
 #index {
-
   .item {
     display: grid;
-    grid: auto auto / 80px 1fr;
-    margin: 20px 0;
+    grid: auto auto / 120px 1fr;
+    margin: 40px 0;
 
     .avatar {
       grid-column: 1;
@@ -25,27 +24,21 @@
         color: @textLighterColor;
       }
     }
-
     h3 {
-      grid-column: 2;
+      color: @textColor;
       grid-row: 1;
-
-      &>span {
+      grid-column: 2;
+      span {
         color: @textLighterColor;
-        font-size: 12px;
         font-weight: normal;
+        font-size: 12px;
       }
     }
-
-    p {
+    Î p {
       grid-column: 2;
       grid-row: 2;
       margin-top: 0;
     }
   }
+  
 }
-
-
-
-
-

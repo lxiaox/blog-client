@@ -1,7 +1,7 @@
 #index .item {
   display: grid;
-  grid: auto auto / 80px 1fr;
-  margin: 20px 0;
+  grid: auto auto / 120px 1fr;
+  margin: 40px 0;
 }
 #index .item .avatar {
   grid-column: 1;
@@ -20,16 +20,22 @@
   color: #999;
 }
 #index .item h3 {
-  grid-column: 2;
+  color: #333;
   grid-row: 1;
+  grid-column: 2;
 }
-#index .item h3 > span {
+#index .item h3 span {
   color: #999;
-  font-size: 12px;
   font-weight: normal;
+  font-size: 12px;
 }
-#index .item p {
+#index .item Î p {
   grid-column: 2;
   grid-row: 2;
   margin-top: 0;
+}
+#index .pagination {
+  display: grid;
+  justify-items: center;
+  margin-bottom: 30px;
 }
