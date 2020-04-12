@@ -1,7 +1,9 @@
 <template>
   <div id="user">
     <section class="user-info">
-      <img :src="user.avatar" :alt="user.username" class="avatar">
+      <div class="avatar img-wrapper">
+        <img :src="user.avatar" :alt="user.username">
+      </div>
       <h3>{{user.username}}</h3>
     </section>
     <section>

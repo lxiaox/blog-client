@@ -10,10 +10,9 @@
   margin-left: 0;
   text-align: center;
 }
-#index .item .avatar img {
+#index .item .avatar div.img-wrapper {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
 }
 #index .item .avatar figcaption {
   font-size: 12px;
@@ -33,9 +32,4 @@
   grid-column: 2;
   grid-row: 2;
   margin-top: 0;
-}
-#index .pagination {
-  display: grid;
-  justify-items: center;
-  margin-bottom: 30px;
 }

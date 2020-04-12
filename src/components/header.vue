@@ -10,7 +10,9 @@
         </router-link>
         <div class="avatar">
           <!-- <img class="avatar" src="../assets/images/avatar.jpeg" alt :title="user.username" /> -->
-          <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username" />
+          <div class="img-wrapper">
+            <img :src="user.avatar" :alt="user.username" :title="user.username" />
+          </div>
           <ul>
             <li><router-link to="/my">我的</router-link></li>
             <li><a link="#" @click="onLogout">注销</a></li>
@@ -80,6 +82,10 @@ header.login {
       width: 40px;
       height: 40px;
       border-radius: 50%;
+      .img-wrapper{
+        width: 40px;
+        height: 40px;
+      }
       ul{
         list-style: none;
         display: none;

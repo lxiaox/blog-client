@@ -49,7 +49,23 @@ a {
 .el-textarea__inner:focus {
   border-color: rgba(227, 99, 100, 0.7);
 }
- /deep/ .el-pager li.active,
- /deep/ .el-pager li:hover {
+.pagination {
+  display: grid;
+  justify-items: center;
+  margin-bottom: 30px;
+}
+.pagination /deep/ .el-pager li.active,
+.pagination /deep/ .el-pager li:hover {
   color: #e36364;
+}
+.img-wrapper {
+  border-radius: 50%;
+  overflow: hidden;
+  margin: auto;
+}
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }

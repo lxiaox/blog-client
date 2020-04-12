@@ -4,7 +4,9 @@
       <div class="item" v-for="blog in blogs" :key="`${blog.id}`">
         <router-link :to="`/user/${blog.user.id}`">
           <figure class="avatar">
-            <img :src="blog.user.avatar" alt="blog.user.username" />
+            <div class="img-wrapper">
+              <img :src="blog.user.avatar" alt="blog.user.username" />
+            </div>
             <figcaption>{{blog.user.username}}</figcaption>
           </figure>
         </router-link>
