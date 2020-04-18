@@ -32,8 +32,6 @@ function request(url) {
     }
 
     (0, _axios["default"])(option).then(function (res) {
-      console.log(res.data);
-
       if (res.data.status === 'ok') {
         resolve(res.data);
       } else {
