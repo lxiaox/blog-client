@@ -11,7 +11,7 @@
     "upload": "npm run build; cd dist; git init; git add .; git commit -am \"init\"; git remote add origin git@github.com:lxiaox/vue-blog-preview.git; git push -f origin master;"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "element-ui": "^2.13.0",
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
