@@ -59,7 +59,7 @@ router.beforeEach((to, from, next) => {
     /**
      * 下面的方法中直接使用store.getters.isLogin判断存在问题：刷新页面时，已经登录的情况可能也会跳转至登录页
      * 这是因为store数据是保存在运行内存中的，当页面刷新时，会重新加载vue实例，store也会被重新初始化
-     * 这时会在header中调用checklogin，异步检查isLogin赋值，所以存在误差
+     * 这时会在header中调用checklogin，异步检查isLogin赋值，所以又会跳转到登录页
      *
      * if (!store.getters.isLogin) { 
      * next({ path: "/login", query: { redirect: to.fullPath } })

@@ -1,5 +1,5 @@
 <template>
-  <header :class="{'login':isLogin,'no-login':!isLogin}">
+  <header :class="{ login: isLogin, 'no-login': !isLogin }">
     <template v-if="isLogin">
       <router-link to="/" class="logo">BLOG SHARE</router-link>
       <div class="right">
@@ -11,7 +11,11 @@
         <div class="avatar">
           <!-- <img class="avatar" src="../assets/images/avatar.jpeg" alt :title="user.username" /> -->
           <div class="img-wrapper">
-            <img :src="user.avatar" :alt="user.username" :title="user.username" />
+            <img
+              :src="user.avatar"
+              :alt="user.username"
+              :title="user.username"
+            />
           </div>
           <ul>
             <li><router-link to="/my">我的</router-link></li>
@@ -25,36 +29,39 @@
       <p>show your ideas</p>
       <div class="btns">
         <router-link to="/login"><el-button>立即登录</el-button></router-link>
-        <router-link to="/register"><el-button>注册账号</el-button></router-link>
+        <router-link to="/register"
+          ><el-button>注册账号</el-button></router-link
+        >
       </div>
     </template>
   </header>
 </template>
 
 <script>
-import { mapGetters,mapActions} from "vuex";
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  name: "Header",
+  name: 'Header',
   data() {
     return {}
   },
   computed: {
-    ...mapGetters(["user", "isLogin"])
+    ...mapGetters(['user', 'isLogin']),
   },
-  methods:{
-    ...mapActions(['logout','checkLogin']),
-    onLogout(){
+  methods: {
+    ...mapActions(['logout', 'checkLogin']),
+    onLogout() {
       this.logout()
-    }
+      localStorage.removeItem('token')
+    },
   },
-  created(){
+  created() {
     this.checkLogin()
-  }
-};
+  },
+}
 </script>
 
 <style lang="less">
-@import "../assets/style/base.less";
+@import '../assets/style/base.less';
 
 header.login {
   display: flex;
@@ -82,17 +89,17 @@ header.login {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      .img-wrapper{
+      .img-wrapper {
         width: 40px;
         height: 40px;
       }
-      ul{
+      ul {
         list-style: none;
         display: none;
         text-align: center;
       }
-      &:hover{
-        ul{
+      &:hover {
+        ul {
           display: block;
         }
       }
