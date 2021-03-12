@@ -5,7 +5,7 @@ import { Message } from 'element-ui'
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8'
 axios.defaults.baseURL = 'https://blog-server.hunger-valley.com'
-axios.defaults.withCredentials = true
+// axios.defaults.withCredentials = true
 
 export default function request(url, method = 'GET', data = {}) {
     return new Promise((resolve, reject) => {
@@ -18,8 +18,15 @@ export default function request(url, method = 'GET', data = {}) {
         } else {
             option.data = data
         }
+        if(localStorage.token){
+            axios.defaults.headers.common['Authorization'] = localStorage.token
+        }
         axios(option).then(res => {
             if (res.data.status === 'ok') {
+                if(res.data.token){
+                    localStorage.token = res.data.token
+                }
+
                 resolve(res.data)
             } else {
                 Message.error(res.data.msg)
