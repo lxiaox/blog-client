@@ -7,25 +7,27 @@
             <div class="img-wrapper">
               <img :src="blog.user.avatar" alt="blog.user.username" />
             </div>
-            <figcaption>{{blog.user.username}}</figcaption>
+            <figcaption>{{ blog.user.username }}</figcaption>
           </figure>
         </router-link>
 
         <router-link :to="`/detail/${blog.id}`">
           <h3 class="title">
-            {{blog.title}}
-            <span>{{friendlyDate(blog.createdAt)}}</span>
+            {{ blog.title }}
+            <span>{{ friendlyDate(blog.createdAt) }}</span>
           </h3>
-          <p>{{blog.description}}</p>
+          <p>{{ blog.description }}</p>
         </router-link>
       </div>
     </section>
-    <section class="pagination" v-show="total>0">
+    <section class="pagination" v-show="total > 0">
       <el-pagination
         layout="total,prev, pager, next, jumper"
         :total="total"
         @current-change="onPageChange"
         :current-page="page"
+        :page-size="20"
+        :pager-count="11"
       ></el-pagination>
     </section>
   </div>
