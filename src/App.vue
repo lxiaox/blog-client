@@ -9,28 +9,28 @@
 </template>
 
 <script>
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import Header from '@/components/header'
+import Footer from '@/components/footer'
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Header,
-    Footer
-  }
-};
+    Footer,
+  },
+}
 </script>
 
 <style lang="less">
-@import url(./assets/style/common.less);
+@import './assets/style/common.less';
 
 #app {
   display: grid;
   grid-template-columns: 12% auto 12%;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    "header header header"
-    ".      main   .     "
-    "footer footer footer";
+    'header header header'
+    '.      main   .     '
+    'footer footer footer';
 
   #header {
     grid-area: header;
