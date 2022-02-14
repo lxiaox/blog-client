@@ -38,8 +38,8 @@ const actions = {
   async checkLogin({ commit, state }) {
     if (state.isLogin) return true
     let res = await auth.getInfo()
+    if(!state.isLogin) return false
     commit('setIsLogin', { isLogin: res.isLogin })
-    if (!res.isLogin) return false
     commit('setUser', { user: res.data })
     return true
   },

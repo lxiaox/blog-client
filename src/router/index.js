@@ -40,7 +40,8 @@ const router = new Router({
     },
     {
       path: "/detail/:blogId",
-      component: () => import("@/pages/detail/template.vue")
+      component: () => import("@/pages/detail/template.vue"),
+      meta: { requireAuth: true }
     }
   ]
 });

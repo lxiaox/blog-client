@@ -39,6 +39,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import { Message } from 'element-ui'
 export default {
   name: 'Header',
   data() {
@@ -50,7 +51,10 @@ export default {
   methods: {
     ...mapActions(['logout', 'checkLogin']),
     onLogout() {
-      this.logout()
+      this.logout().then(()=>{
+        Message.success('注销成功')
+        this.$router.push({path:'/'})
+      })
       localStorage.removeItem('token')
     },
   },
