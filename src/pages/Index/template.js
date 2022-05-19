@@ -4,8 +4,8 @@ export default {
   data() {
     return {
       blogs: [],
-      page:1,
-      total:0,
+      page: 1,
+      total: 0,
     }
   },
   created() {
@@ -13,8 +13,9 @@ export default {
     this.getBlogs(this.page)
   },
   methods: {
-    getBlogs(page=1) { 
-      blog.getIndexBlogs({page}).then(res => {
+    getBlogs(page = 1) {
+      blog.getIndexBlogs({ page }).then((res) => {
+        console.log('blogs', res)
         this.blogs = res.data
         this.page = res.page
         this.total = res.total
@@ -22,7 +23,7 @@ export default {
     },
     onPageChange(newPage) {
       this.getBlogs(newPage)
-      this.$router.push({path:'/',query:{page:newPage}})
-    }
-  }
+      this.$router.push({ path: '/', query: { page: newPage } })
+    },
+  },
 }

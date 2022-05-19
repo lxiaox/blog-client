@@ -46,21 +46,21 @@ export default {
     return {}
   },
   computed: {
-    ...mapGetters(['user', 'isLogin']),
+    ...mapGetters(['user', 'isLogin'])
   },
   methods: {
     ...mapActions(['logout', 'checkLogin']),
     onLogout() {
-      this.logout().then(()=>{
+      this.logout().then(() => {
         Message.success('注销成功')
-        this.$router.push({path:'/'})
+        this.$router.push({ path: '/' })
       })
       localStorage.removeItem('token')
-    },
+    }
   },
   created() {
     this.checkLogin()
-  },
+  }
 }
 </script>
 

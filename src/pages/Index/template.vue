@@ -26,7 +26,7 @@
         :total="total"
         @current-change="onPageChange"
         :current-page="page"
-        :page-size="20"
+        :page-size="10"
         :pager-count="11"
       ></el-pagination>
     </section>
